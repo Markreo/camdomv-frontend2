@@ -5,9 +5,9 @@ import {DetailUserComponent} from './_components/detail-user/detail-user.compone
 import {FormUserComponent} from './_components/form-user/form-user.component';
 import {UserRoutingModule} from './user.routing';
 import {ReactiveFormsModule} from '@angular/forms';
-import {NgZorroAntdModule} from 'ng-zorro-antd';
 import {SharedModule} from '../shared/shared.module';
-import {MhtLibrariesModule} from 'mht-libraries.module';
+import {AntProviderModule} from '../ant-provider.module';
+import {IconsProviderModule} from '../icons-provider.module';
 
 @NgModule({
   declarations: [ListUserComponent, DetailUserComponent, FormUserComponent],
@@ -16,9 +16,8 @@ import {MhtLibrariesModule} from 'mht-libraries.module';
     UserRoutingModule,
     ReactiveFormsModule,
     SharedModule,
-    MhtLibrariesModule,
-    NgZorroAntdModule,
-    MhtLibrariesModule
+    IconsProviderModule,
+    AntProviderModule
   ]
 })
 export class UserModule {
