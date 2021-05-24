@@ -9,6 +9,8 @@ import {NzDividerModule} from 'ng-zorro-antd/divider';
 import {NzPageHeaderModule} from 'ng-zorro-antd/page-header';
 import {NzInputModule} from 'ng-zorro-antd/input';
 import {NzFormModule} from 'ng-zorro-antd/form';
+import {NzSpaceModule} from 'ng-zorro-antd/space';
+import {NzTypographyModule} from 'ng-zorro-antd/typography';
 
 
 const exs = [
@@ -21,7 +23,10 @@ const exs = [
   NzTagModule,
   NzDividerModule,
   NzInputModule,
-  NzFormModule];
+  NzFormModule,
+  NzSpaceModule,
+  NzTypographyModule
+];
 
 @NgModule({
   imports: exs,

@@ -10,7 +10,6 @@ export abstract class ShowTableHelper<T> {
   }
 
   triggerSearch(s: any): void {
-
   }
 
   handleDelete(data: any): void {
