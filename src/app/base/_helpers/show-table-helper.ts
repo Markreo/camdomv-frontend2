@@ -6,7 +6,11 @@ export abstract class ShowTableHelper<T> {
   title: string;
   abstract columns: any[];
 
-  constructor(baseService: BaseService<T>) {
+  protected baseService: BaseService<T>;
+
+  // tslint:disable-next-line:variable-name
+  protected constructor(_baseService: BaseService<T>) {
+    this.baseService = _baseService;
   }
 
   triggerSearch(s: any): void {

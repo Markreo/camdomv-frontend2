@@ -14,6 +14,8 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import {setAppInjector} from './app-injector';
+import {BuildEndpointFactory, FieldModule} from 'mht-test-libraries';
+import {BuildEndpointApiFactory} from './build-endpoint-api.factory';
 
 registerLocaleData(en);
 
@@ -29,7 +31,13 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     IconsProviderModule,
     NzLayoutModule,
-    NzMenuModule
+    NzMenuModule,
+    FieldModule.forRoot({
+      buildEndpointFactory: {
+        provide: BuildEndpointFactory,
+        useFactory: BuildEndpointApiFactory
+      }
+    })
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
