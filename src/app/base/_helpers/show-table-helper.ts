@@ -1,12 +1,19 @@
 import {BaseService} from '../_services/base.service';
-import {OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SCondition} from '@nestjsx/crud-request';
+import {BaseEntity} from '../_models/base.entity';
+import {TableColumn} from 'mht-test-libraries/field/models/table-column';
+import {ProcessFilter} from '../../process-filter';
 
-export abstract class ShowTableHelper<T> implements OnInit {
+@Component({
+  template: ``
+})
+// tslint:disable-next-line:component-class-suffix
+export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnInit {
   data = [];
-  getData: any = {filterObject: {}};
+  getData = new ProcessFilter();
   title: string;
-  abstract columns: any[];
+  columns: TableColumn[] = [];
 
   protected service: BaseService<T>;
 
@@ -39,7 +46,7 @@ export abstract class ShowTableHelper<T> implements OnInit {
     this.updateData();
   }
 
-  buildSearch = (str): SCondition => {
+  buildSearch(str): SCondition {
     return {
       $or: [
         {

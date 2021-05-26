@@ -20,7 +20,7 @@
     "@angular/platform-browser-dynamic": "~11.2.14",
     "@angular/router": "~11.2.14",
     "@nestjsx/crud-request": "^5.0.0-alpha.3",
-    "mht-test-libraries": "0.0.3",
+    "mht-test-libraries": "file:../../mht-test-libraries/dist/mht-test-libraries",
     "ng-zorro-antd": "^11.4.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
