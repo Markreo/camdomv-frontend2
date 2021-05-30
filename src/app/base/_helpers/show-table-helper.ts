@@ -41,9 +41,15 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
   }
 
   ngOnInit(): void {
-    this.getData.buildSearch = this.buildSearch;
+    this.setupQueryParams();
+
     this.subscribeData();
     this.updateData();
+  }
+
+  setupQueryParams(): void {
+    this.getData.buildSearch = this.buildSearch;
+    this.getData.filterObject.fields = this.columns.map(column => column.key);
   }
 
   buildSearch(str): SCondition {

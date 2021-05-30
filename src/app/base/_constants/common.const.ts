@@ -1,9 +1,10 @@
+import {SelectDateTimeField} from 'mht-test-libraries/field/models/fields/select-date-time.field';
 export enum MODULE {
   CUSTOMER
 }
 
 export const COMMON = {
-  // createdAt: new DateTimeField({key: 'createdAt', label: 'Ngày tạo'}),
-  // updatedAt: new DateTimeField({key: 'updatedAt', label: 'Ngày cập nhật'}),
-  // deleteAt: new DateTimeField({key: 'deleteAt', label: 'Ngày xoá'})
+  // createdAt: new SelectDateTimeField({key: 'createdAt', label: 'Ngày tạo'}),
+  // updatedAt: new SelectDateTimeField({key: 'updatedAt', label: 'Ngày cập nhật'}),
+  // deleteAt: new SelectDateTimeField({key: 'deleteAt', label: 'Ngày xoá'})
 };
