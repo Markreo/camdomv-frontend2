@@ -2,7 +2,7 @@ import {BaseService} from '../_services/base.service';
 import {Component, OnInit} from '@angular/core';
 import {SCondition} from '@nestjsx/crud-request';
 import {BaseEntity} from '../_models/base.entity';
-import {TableColumn} from 'mht-test-libraries/field/models/table-column';
+import {TableColumn} from 'mht-test-libraries';
 import {ProcessFilter} from '../../process-filter';
 
 @Component({
@@ -14,14 +14,12 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
   getData = new ProcessFilter();
   title: string;
   columns: TableColumn[] = [];
+  searchStr = '';
 
   protected service: BaseService<T>;
 
   protected constructor(baseService: BaseService<T>) {
     this.service = baseService;
-  }
-
-  triggerSearch(s: any): void {
   }
 
   handleDelete(data: any): void {
@@ -74,6 +72,11 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
 
   updateData(): void {
     this.getData.updateData();
+  }
+
+  triggerSearch(): void {
+    this.getData.filterObject.search = this.buildSearch(this.searchStr);
+    this.updateData();
   }
 
 }

@@ -48,7 +48,7 @@
     <div style="display: flex">
       <div style="flex: 1; margin-right: 8px">
         <nz-input-group [nzSuffix]="suffixIconSearch">
-          <input type="text" nz-input placeholder="Tìm kiếm" (input)="triggerSearch($event)"/>
+          <input type="text" [(ngModel)]="searchStr" nz-input placeholder="Tìm kiếm" (ngModelChange)="triggerSearch()"/>
         </nz-input-group>
         <ng-template #suffixIconSearch>
           <i nz-icon nzType="search"></i>
@@ -86,7 +86,6 @@
     <td *ngFor="let column of columns">
       <app-render-table-cell  [column]="column" [data]="data"></app-render-table-cell>
     </td>
-
     <td>
       <a [routerLink]="['form', data.id]">Edit</a>
       <nz-divider nzType="vertical"></nz-divider>
