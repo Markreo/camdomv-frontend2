@@ -17,7 +17,7 @@ import {IconsProviderModule} from '../icons-provider.module';
     ReactiveFormsModule,
     SharedModule,
     IconsProviderModule,
-    AntProviderModule
+    AntProviderModule,
   ]
 })
 export class UserModule {

@@ -44,7 +44,7 @@
 
   <!--content-->
   <nz-page-header-content>
-<!--    todo: nz-space-->
+    <!--    todo: nz-space-->
     <div style="display: flex">
       <div style="flex: 1; margin-right: 8px">
         <nz-input-group [nzSuffix]="suffixIconSearch">
@@ -56,9 +56,9 @@
       </div>
       <div class="page-header-button">
         <nz-space>
-        <button *nzSpaceItem nz-button nzType="default"><i nz-icon nzType="bar-chart" nzTheme="outline"></i></button>
-        <button *nzSpaceItem nz-button nzType="default"><i nz-icon nzType="reload" nzTheme="outline"></i></button>
-        <button *nzSpaceItem nz-button nzType="default"><i nz-icon nzType="filter" nzTheme="fill"></i></button>
+          <button *nzSpaceItem nz-button nzType="default"><i nz-icon nzType="bar-chart" nzTheme="outline"></i></button>
+          <button *nzSpaceItem nz-button nzType="default"><i nz-icon nzType="reload" nzTheme="outline"></i></button>
+          <button *nzSpaceItem nz-button nzType="default"><i nz-icon nzType="filter" nzTheme="fill"></i></button>
         </nz-space>
       </div>
     </div>
@@ -83,9 +83,10 @@
   </thead>
   <tbody>
   <tr *ngFor="let data of table.data">
-    <td>{{ data.name }}</td>
-    <td>{{ data.age }}</td>
-    <td>{{ data.address }}</td>
+    <td *ngFor="let column of columns">
+      <app-render-table-cell  [column]="column" [data]="data"></app-render-table-cell>
+    </td>
+
     <td>
       <a [routerLink]="['form', data.id]">Edit</a>
       <nz-divider nzType="vertical"></nz-divider>
