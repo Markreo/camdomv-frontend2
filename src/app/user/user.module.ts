@@ -8,6 +8,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {SharedModule} from '../shared/shared.module';
 import {AntProviderModule} from '../ant-provider.module';
 import {IconsProviderModule} from '../icons-provider.module';
+import {FieldModule} from 'mht-test-libraries';
 
 @NgModule({
   declarations: [ListUserComponent, DetailUserComponent, FormUserComponent],
@@ -19,6 +20,7 @@ import {IconsProviderModule} from '../icons-provider.module';
     IconsProviderModule,
     AntProviderModule,
     FormsModule,
+    FieldModule
   ]
 })
 export class UserModule {
