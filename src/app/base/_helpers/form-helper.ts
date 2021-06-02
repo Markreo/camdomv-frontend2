@@ -26,10 +26,13 @@ export abstract class FormHelper<T> implements OnInit, OnDestroy { // for 1 fiel
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
       if (data.object) {
-        this.form = this.buildForm(data.object);
-        console.log('form', this.form.controls);
+        this.init(data.object);
       }
     });
+  }
+
+  init(object): void {
+    this.form = this.buildForm(object);
   }
 
   buildForm(data: Partial<T> = {}): FormGroup {

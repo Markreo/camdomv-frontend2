@@ -44,7 +44,10 @@ registerLocaleData(en);
       }
     })
   ],
-  providers: [{provide: NZ_I18N, useValue: vi_VN}, {provide: LOCALE_ID, useValue: 'en'}],
+  providers: [
+    {provide: NZ_I18N, useValue: vi_VN},
+    {provide: LOCALE_ID, useValue: 'en'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

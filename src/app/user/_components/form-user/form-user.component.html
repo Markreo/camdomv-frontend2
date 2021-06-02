@@ -1,46 +1,14 @@
 <form *ngIf="form" nz-form [formGroup]="form" (ngSubmit)="handleSubmit()">
-  {{form.value | json}}
-  <button (click)="log()">log</button>
   <nz-form-item *ngFor="let field of fields">
     <nz-form-label [nzSpan]="7" [nzRequired]="field.isRequired">{{field.label}}</nz-form-label>
-    <nz-form-control [nzSpan]="12" [nzErrorTip]="userErrorTplx">
+    <nz-form-control [nzSpan]="12" [nzValidateStatus]="form.get(field.key)"
+                     [nzAutoTips]="form.get(field.key).errors | buildAutoTip: field.label">
       <lib-field [field]="field" [form]="form"></lib-field>
     </nz-form-control>
-    {{form.get('username').hasError('required') | json}}
-    <ng-template #userErrorTplx let-control>
-
-      <ng-container *ngIf="control.hasError('required')">
-        Please input your username!
-      </ng-container>
-      <ng-container *ngIf="control.hasError('duplicated')">
-        The username is redundant!
-      </ng-container>
-    </ng-template>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control [nzOffset]="7" [nzSpan]="12">
       <button nz-button nzType="primary" [disabled]="!form.valid || submitting">Submit</button>
     </nz-form-control>
   </nz-form-item>
-</form>
-
-<form
-  nz-form
-  [formGroup]="validateForm"
->
-  <nz-form-item>
-    <nz-form-label [nzSpan]="7" nzRequired>Username</nz-form-label>
-    <nz-form-control [nzSpan]="12" [nzErrorTip]="userErrorTpl">
-
-      <ng-template #userErrorTpl let-control>
-        <ng-container *ngIf="control.hasError('required')">
-          Please input your username!
-        </ng-container>
-        <ng-container *ngIf="control.hasError('duplicated')">
-          The username is redundant!
-        </ng-container>
-      </ng-template>
-    </nz-form-control>
-  </nz-form-item>
-
 </form>
