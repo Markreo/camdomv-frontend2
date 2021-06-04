@@ -11,12 +11,11 @@ import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {IconsProviderModule} from './icons-provider.module';
-import {NzLayoutModule} from 'ng-zorro-antd/layout';
-import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {setAppInjector} from './app-injector';
 import {BuildEndpointFactory, FormatDateFactory, FieldModule} from 'mht-test-libraries';
 import {BuildEndpointApiFactory} from './build-endpoint-api.factory';
 import {BuildFormatDateFactory} from './format-date.factory';
+import {AntProviderModule} from './ant-provider.module';
 
 registerLocaleData(en);
 
@@ -31,8 +30,7 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
-    NzLayoutModule,
-    NzMenuModule,
+    AntProviderModule,
     FieldModule.forRoot({
       buildEndpointFactory: {
         provide: BuildEndpointFactory,

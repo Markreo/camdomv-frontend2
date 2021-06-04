@@ -14,6 +14,10 @@ export abstract class BaseService<T extends BaseEntity = BaseEntity> {
 
   abstract createInstance(entity: Partial<T>): T;
 
+  routerLink(): string {
+    return this.endpoint;
+  }
+
   get(id: string): Observable<T> {
     return this.http.get<T>(buildUrl(this.endpoint) + '/' + id).pipe(
       map(resp => this.createInstance(resp))

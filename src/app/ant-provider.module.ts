@@ -11,6 +11,7 @@ import {NzInputModule} from 'ng-zorro-antd/input';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzSpaceModule} from 'ng-zorro-antd/space';
 import {NzTypographyModule} from 'ng-zorro-antd/typography';
+import {NzMessageModule} from 'ng-zorro-antd/message';
 
 
 const exs = [
@@ -25,7 +26,8 @@ const exs = [
   NzInputModule,
   NzFormModule,
   NzSpaceModule,
-  NzTypographyModule
+  NzTypographyModule,
+  NzMessageModule
 ];
 
 @NgModule({
