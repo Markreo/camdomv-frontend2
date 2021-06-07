@@ -14,7 +14,6 @@ export class RenderTableCellComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.column);
   }
 
 }

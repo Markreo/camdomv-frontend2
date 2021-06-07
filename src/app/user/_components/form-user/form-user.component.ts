@@ -15,9 +15,7 @@ import {NzFormControlComponent} from 'ng-zorro-antd/form';
 export class FormUserComponent extends FormHelper<UserEntity> {
   fields = [USER.name, USER.username, USER.password, USER.confirmPassword];
 
-  @ViewChildren(NzFormControlComponent) formControls: QueryList<NzFormControlComponent>;
-
-  constructor(private activated: ActivatedRoute, private userService: UserService, private fb: FormBuilder) {
+  constructor(private activated: ActivatedRoute, private userService: UserService) {
     super(activated, userService);
   }
 }

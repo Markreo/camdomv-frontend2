@@ -41,6 +41,7 @@ export abstract class FormHelper<T extends BaseEntity = BaseEntity> implements O
   init(object): void {
     this.object = object;
     this.form = this.buildForm(object);
+    console.log('thisf', this.form)
   }
 
   buildForm(data: Partial<T> = {}): FormGroup {
