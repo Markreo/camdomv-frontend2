@@ -11,7 +11,7 @@ import {STORE} from '../../_constants/store.const';
   styleUrls: ['./form-store.component.css']
 })
 export class FormStoreComponent extends FormHelper<StoreEntity> {
-  fields = [STORE.name, STORE.address, STORE.phone];
+  fields = [STORE.name, STORE.address, STORE.phone, STORE.director];
 
   constructor(private activated: ActivatedRoute, private storeService: StoreService) {
     super(activated, storeService);

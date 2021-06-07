@@ -11,7 +11,7 @@ import {DIRECTOR} from '../../_constants/director.const';
   styleUrls: ['./form-director.component.css']
 })
 export class FormDirectorComponent extends FormHelper<DirectorEntity> {
-  fields = [DIRECTOR.name];
+  fields = [DIRECTOR.name, DIRECTOR.phone, DIRECTOR.address, DIRECTOR.dateOfBirthDirector, DIRECTOR.identityCard, DIRECTOR.dateRegisterCard, DIRECTOR.provinceRegisterCard];
 
   constructor(private activated: ActivatedRoute, private directorService: DirectorService) {
     super(activated, directorService);
