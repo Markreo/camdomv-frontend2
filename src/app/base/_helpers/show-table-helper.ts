@@ -4,6 +4,8 @@ import {SCondition} from '@nestjsx/crud-request';
 import {BaseEntity} from '../_models/base.entity';
 import {TableColumn} from 'mht-test-libraries';
 import {ProcessFilter} from '../../process-filter';
+import {NzMessageService} from 'ng-zorro-antd/message';
+import {AppInjector} from '../../app-injector';
 
 @Component({
   template: ``
@@ -17,6 +19,7 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
   searchStr = '';
 
   protected service: BaseService<T>;
+  protected nzMessageService: NzMessageService = AppInjector.get(NzMessageService);
 
   protected constructor(baseService: BaseService<T>) {
     this.service = baseService;
@@ -24,14 +27,14 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
 
   handleDelete(data: any): void {
     this.getData.loading = true;
-    // this.service.delete(entity.id).subscribe(resp => {
-    //   this.updateData();
-    //   this.getData.loading = false;
-    //   this.nzMessageService.success('Xóa record thành công!');
-    // }, error => {
-    //   this.nzMessageService.error('Xóa record thất bại!');
-    //   this.getData.loading = false;
-    // });
+    this.service.delete(data.id).subscribe(resp => {
+      this.updateData();
+      this.getData.loading = false;
+      this.nzMessageService.success(`Xóa ${this.title} thành công!`);
+    }, error => {
+      this.nzMessageService.error(`Xóa ${this.title} thất bại! Xin vui lòng liên hệ quản trị viên!`);
+      this.getData.loading = false;
+    });
   }
 
   handleExport(): void {
