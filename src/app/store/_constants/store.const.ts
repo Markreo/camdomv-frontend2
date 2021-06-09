@@ -14,4 +14,4 @@ export const STORE = {
 };
 export const ENDPOINT_STORE = '/store';
 export const LABEL_STORE = 'Cửa hàng';
-export const COLUMNS_STORE = [STORE.name, STORE.address, STORE.phone, STORE.createdAt];
+export const COLUMNS_STORE = [STORE.name, STORE.director, STORE.address, STORE.phone, STORE.createdAt];

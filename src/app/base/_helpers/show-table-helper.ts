@@ -100,22 +100,21 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
 
   handleFilter(): void {
     const settingFilterDrawRef = this.drawerService.create<SettingTableFilterComponent, { module: { [p: string]: BaseField } }>({
-        nzTitle: 'Table Fiter',
-        nzContent: SettingTableFilterComponent,
-        nzContentParams: {
-          module: this.service.module
-        },
-        nzWidth: 400
-      });
+      nzTitle: 'Table Fiter',
+      nzContent: SettingTableFilterComponent,
+      nzContentParams: {
+        module: this.service.module
+      },
+      nzWidth: 400
+    });
 
 
-      settingFilterDrawRef.afterClose.subscribe(data => {
-        console.log('data');
-      });
+    settingFilterDrawRef.afterClose.subscribe(data => {
+      console.log('data');
+    });
   }
 
   handleSettingTable(): void {
-    console.log('handleSettingTable');
     const settingColumnDrawRef = this.drawerService.create<SettingTableColumnComponent, { module: { [p: string]: BaseField } }>({
       nzTitle: 'Table Columns',
       nzContent: SettingTableColumnComponent,

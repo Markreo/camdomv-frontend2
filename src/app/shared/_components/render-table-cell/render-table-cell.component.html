@@ -1,3 +1,7 @@
-<ng-container *ngIf="column">
+<ng-container *ngIf="mode === 'default'">
   {{column.renderValue(data)}}
+</ng-container>
+<ng-container *ngIf="mode === 'object'">
+  <div [innerHTML]="column.renderValue(data) | safeHtml">
+  </div>
 </ng-container>
