@@ -14,6 +14,7 @@ import {NzTypographyModule} from 'ng-zorro-antd/typography';
 import {NzMessageModule} from 'ng-zorro-antd/message';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzDrawerModule } from 'ng-zorro-antd/drawer';
+import {NzDatePickerModule} from 'ng-zorro-antd/date-picker';
 
 
 const exs = [
@@ -31,7 +32,8 @@ const exs = [
   NzTypographyModule,
   NzMessageModule,
   NzPopconfirmModule,
-  NzDrawerModule
+  NzDrawerModule,
+  NzDatePickerModule
 ];
 
 @NgModule({

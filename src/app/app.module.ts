@@ -3,8 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {NZ_I18N} from 'ng-zorro-antd/i18n';
-import {vi_VN} from 'ng-zorro-antd/i18n';
+import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
 import {registerLocaleData} from '@angular/common';
 import en from '@angular/common/locales/en';
 import {FormsModule} from '@angular/forms';
@@ -43,7 +42,7 @@ registerLocaleData(en);
     })
   ],
   providers: [
-    {provide: NZ_I18N, useValue: vi_VN},
+    { provide: NZ_I18N, useValue: en_US },
     {provide: LOCALE_ID, useValue: 'en'},
   ],
   bootstrap: [AppComponent]

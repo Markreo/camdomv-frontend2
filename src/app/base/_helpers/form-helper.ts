@@ -42,12 +42,14 @@ export abstract class FormHelper<T extends BaseEntity = BaseEntity> implements O
   init(object): void {
     this.object = object;
     this.form = this.buildForm(object);
+    console.log('form', this.form);
   }
 
   buildForm(data: Partial<T> = {}): FormGroup {
     const form = new FormGroup({
       id: new FormControl(data.id)
     });
+    console.log('fiels', this.fields);
     this.fields.forEach((field: BaseField) => {
       const formControl = new FormControl({value: data[field.key], disabled: field.disabled}, field.validators);
       form.addControl(field.key, formControl);
