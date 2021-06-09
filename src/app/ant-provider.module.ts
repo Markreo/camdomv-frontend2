@@ -13,6 +13,7 @@ import {NzSpaceModule} from 'ng-zorro-antd/space';
 import {NzTypographyModule} from 'ng-zorro-antd/typography';
 import {NzMessageModule} from 'ng-zorro-antd/message';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzDrawerModule } from 'ng-zorro-antd/drawer';
 
 
 const exs = [
@@ -29,7 +30,8 @@ const exs = [
   NzSpaceModule,
   NzTypographyModule,
   NzMessageModule,
-  NzPopconfirmModule
+  NzPopconfirmModule,
+  NzDrawerModule
 ];
 
 @NgModule({

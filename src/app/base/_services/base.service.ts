@@ -5,12 +5,14 @@ import {HttpClient} from '@angular/common/http';
 import {AppInjector} from '../../app-injector';
 import {catchError, map} from 'rxjs/operators';
 import {CreateQueryParams, RequestQueryBuilder} from '@nestjsx/crud-request';
+import {BaseField} from 'mht-test-libraries';
 
 export type ResultPagination<T> = { data: T[], count: number, page: number, total: number, pageCount: number };
 
 export abstract class BaseService<T extends BaseEntity = BaseEntity> {
   protected http: HttpClient = AppInjector.get(HttpClient);
   abstract endpoint: string;
+  abstract module: { [p: string]: BaseField };
 
   abstract createInstance(entity: Partial<T>): T;
 

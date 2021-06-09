@@ -4,7 +4,7 @@ export class CreatedAtField extends SelectDateTimeField {
   constructor(option: Partial<SelectDateTimeField> = {}) {
     const init = {
       key: 'createdAt',
-      label: 'Ngay Tao'
+      label: 'Ngày tạo'
     };
     super({...init, ...option});
   }

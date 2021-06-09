@@ -32,7 +32,7 @@ export abstract class FormHelper<T extends BaseEntity = BaseEntity> implements O
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
-      console.log('data', data)
+      console.log('data', data);
       if (data.object) {
         this.init(data.object);
       }

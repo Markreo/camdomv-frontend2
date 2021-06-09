@@ -2,10 +2,13 @@ import {BaseService} from '../_services/base.service';
 import {Component, OnInit} from '@angular/core';
 import {SCondition} from '@nestjsx/crud-request';
 import {BaseEntity} from '../_models/base.entity';
-import {TableColumn} from 'mht-test-libraries';
+import {BaseField, TableColumn} from 'mht-test-libraries';
 import {ProcessFilter} from '../../process-filter';
 import {NzMessageService} from 'ng-zorro-antd/message';
 import {AppInjector} from '../../app-injector';
+import {NzDrawerService} from 'ng-zorro-antd/drawer';
+import {SettingTableFilterComponent} from '../../shared/_components/setting-table-filter/setting-table-filter.component';
+import {SettingTableColumnComponent} from '../../shared/_components/setting-table-column/setting-table-column.component';
 
 @Component({
   template: ``
@@ -20,9 +23,21 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
 
   protected service: BaseService<T>;
   protected nzMessageService: NzMessageService = AppInjector.get(NzMessageService);
+  protected drawerService: NzDrawerService = AppInjector.get(NzDrawerService);
 
   protected constructor(baseService: BaseService<T>) {
     this.service = baseService;
+  }
+
+  ngOnInit(): void {
+    this.setupQueryParams();
+
+    this.subscribeData();
+    this.updateData();
+  }
+
+  get isFiltering(): boolean {
+    return false;
   }
 
   handleDelete(data: any): void {
@@ -39,13 +54,6 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
 
   handleExport(): void {
 
-  }
-
-  ngOnInit(): void {
-    this.setupQueryParams();
-
-    this.subscribeData();
-    this.updateData();
   }
 
   setupQueryParams(): void {
@@ -80,6 +88,46 @@ export class ShowTableHelper<T extends BaseEntity = BaseEntity> implements OnIni
   triggerSearch(): void {
     this.getData.filterObject.search = this.buildSearch(this.searchStr);
     this.updateData();
+  }
+
+  triggerUpdate(): void {
+
+  }
+
+  toggleViewMode(): void {
+
+  }
+
+  handleFilter(): void {
+    const settingFilterDrawRef = this.drawerService.create<SettingTableFilterComponent, { module: { [p: string]: BaseField } }>({
+        nzTitle: 'Table Fiter',
+        nzContent: SettingTableFilterComponent,
+        nzContentParams: {
+          module: this.service.module
+        },
+        nzWidth: 400
+      });
+
+
+      settingFilterDrawRef.afterClose.subscribe(data => {
+        console.log('data');
+      });
+  }
+
+  handleSettingTable(): void {
+    console.log('handleSettingTable');
+    const settingColumnDrawRef = this.drawerService.create<SettingTableColumnComponent, { module: { [p: string]: BaseField } }>({
+      nzTitle: 'Table Columns',
+      nzContent: SettingTableColumnComponent,
+      nzContentParams: {
+        module: this.service.module
+      },
+      nzWidth: 400
+    });
+
+    settingColumnDrawRef.afterClose.subscribe(data => {
+      console.log('data', data);
+    });
   }
 
 }
