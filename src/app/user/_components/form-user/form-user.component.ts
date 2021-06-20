@@ -1,11 +1,9 @@
-import {Component, QueryList, ViewChildren} from '@angular/core';
+import {Component} from '@angular/core';
 import {UserEntity} from '../../_models/user.entity';
 import {FormHelper} from '../../../base/_helpers/form-helper';
 import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../../_services/user.service';
 import {USER} from '../../_constants/user.const';
-import {FormBuilder, FormControl, Validators} from '@angular/forms';
-import {NzFormControlComponent} from 'ng-zorro-antd/form';
 
 @Component({
   selector: 'app-form-user',
