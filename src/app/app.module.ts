@@ -1,11 +1,10 @@
-import {Injector, LOCALE_ID, NgModule} from '@angular/core';
+import {Injector, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import { NZ_I18N, en_US } from 'ng-zorro-antd/i18n';
+import {NZ_I18N, vi_VN} from 'ng-zorro-antd/i18n';
 import {registerLocaleData} from '@angular/common';
-import en from '@angular/common/locales/en';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -15,8 +14,10 @@ import {BuildEndpointFactory, FormatDateFactory, FieldModule} from 'mht-test-lib
 import {BuildEndpointApiFactory} from './build-endpoint-api.factory';
 import {BuildFormatDateFactory} from './format-date.factory';
 import {AntProviderModule} from './ant-provider.module';
+import vi from '@angular/common/locales/vi';
 
-registerLocaleData(en);
+registerLocaleData(vi);
+
 
 @NgModule({
   declarations: [
@@ -42,8 +43,7 @@ registerLocaleData(en);
     })
   ],
   providers: [
-    { provide: NZ_I18N, useValue: en_US },
-    {provide: LOCALE_ID, useValue: 'en'},
+    {provide: NZ_I18N, useValue: vi_VN}
   ],
   bootstrap: [AppComponent]
 })

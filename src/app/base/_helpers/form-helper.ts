@@ -7,6 +7,7 @@ import {BaseField} from 'mht-test-libraries';
 import {BaseEntity} from '../_models/base.entity';
 import {AppInjector} from '../../app-injector';
 import {NzMessageService} from 'ng-zorro-antd/message';
+import { Location } from '@angular/common'
 
 @Component({
   template: ``
@@ -14,6 +15,7 @@ import {NzMessageService} from 'ng-zorro-antd/message';
 // tslint:disable-next-line:component-class-suffix
 export abstract class FormHelper<T extends BaseEntity = BaseEntity> implements OnInit, OnDestroy { // for 1 fields
   abstract fields: BaseField[] = [];
+  abstract label: string;
   form: FormGroup;
   submitting = false;
   protected onDestroy$: Subject<boolean> = new Subject<boolean>();
@@ -22,8 +24,9 @@ export abstract class FormHelper<T extends BaseEntity = BaseEntity> implements O
   private baseService: BaseService<T>;
   protected router: Router = AppInjector.get(Router);
   protected nzMessageService: NzMessageService = AppInjector.get(NzMessageService);
+  protected location: Location = AppInjector.get(Location);
 
-  private object: Partial<T>;
+  object: Partial<T>;
 
   protected constructor(activated: ActivatedRoute, base: BaseService<T>) {
     this.activatedRoute = activated;
@@ -63,7 +66,7 @@ export abstract class FormHelper<T extends BaseEntity = BaseEntity> implements O
       const api = this.object.id ? this.getApiUpdate(this.object.id, {...this.object, ...this.form.value}) : this.getApiCreate(this.form.value);
       api.subscribe(entity => {
         this.submitting = false;
-        this.router.navigate([this.baseService.routerLink(), 'detail', entity.id]);
+        this.router.navigate([this.baseService.routerLink(), 'detail', entity.id]); // location.back
         this.nzMessageService.success('Thao tác thành công!');
       }, error => {
         this.submitting = false;
@@ -86,6 +89,9 @@ export abstract class FormHelper<T extends BaseEntity = BaseEntity> implements O
     return this.baseService.update(id, data);
   }
 
+  back(): void {
+    this.location.back();
+  }
 
   ngOnDestroy(): void {
     this.onDestroy$.next(true);

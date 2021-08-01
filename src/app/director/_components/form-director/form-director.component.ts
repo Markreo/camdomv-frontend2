@@ -3,7 +3,7 @@ import {DirectorEntity} from '../../_models/director.entity';
 import {FormHelper} from '../../../base/_helpers/form-helper';
 import {ActivatedRoute} from '@angular/router';
 import {DirectorService} from '../../_services/director.service';
-import {DIRECTOR} from '../../_constants/director.const';
+import {DIRECTOR, LABEL_DIRECTOR} from '../../_constants/director.const';
 
 @Component({
   selector: 'app-form-director',
@@ -12,6 +12,7 @@ import {DIRECTOR} from '../../_constants/director.const';
 })
 export class FormDirectorComponent extends FormHelper<DirectorEntity> {
   fields = [DIRECTOR.name, DIRECTOR.phone, DIRECTOR.address, DIRECTOR.dateOfBirthDirector, DIRECTOR.identityCard, DIRECTOR.dateRegisterCard, DIRECTOR.provinceRegisterCard];
+  label = LABEL_DIRECTOR;
 
   constructor(private activated: ActivatedRoute, private directorService: DirectorService) {
     super(activated, directorService);

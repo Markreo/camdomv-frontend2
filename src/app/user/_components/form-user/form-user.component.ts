@@ -3,7 +3,7 @@ import {UserEntity} from '../../_models/user.entity';
 import {FormHelper} from '../../../base/_helpers/form-helper';
 import {ActivatedRoute} from '@angular/router';
 import {UserService} from '../../_services/user.service';
-import {USER} from '../../_constants/user.const';
+import {LABEL_USER, USER} from '../../_constants/user.const';
 
 @Component({
   selector: 'app-form-user',
@@ -12,6 +12,7 @@ import {USER} from '../../_constants/user.const';
 })
 export class FormUserComponent extends FormHelper<UserEntity> {
   fields = [USER.name, USER.username, USER.password, USER.confirmPassword];
+  label = LABEL_USER;
 
   constructor(private activated: ActivatedRoute, private userService: UserService) {
     super(activated, userService);
