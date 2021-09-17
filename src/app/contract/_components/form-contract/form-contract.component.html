@@ -1,18 +1,156 @@
 <nz-page-header class="site-page-header">
   <nz-page-header-title>{{object?.id ? 'Cập nhật' : 'Tạo'}} {{label}}</nz-page-header-title>
 </nz-page-header>
-<form *ngIf="form" nz-form [formGroup]="form">
-  <nz-form-item *ngFor="let field of fields">
-    <nz-form-label [nzSpan]="7" [nzRequired]="field.isRequired">{{field.label}}</nz-form-label>
-    <nz-form-control [nzSpan]="12" [nzValidateStatus]="form.get(field.key)"
-                     [nzAutoTips]="form.get(field.key).errors | buildAutoTip: field.label">
-      <lib-field [field]="field" [form]="form"></lib-field>
-    </nz-form-control>
-  </nz-form-item>
-  <nz-form-item>
-    <nz-form-control [nzOffset]="7" [nzSpan]="12">
-      <button nz-button (click)="back()">Cancel</button>
-      <button nz-button nzType="primary" type="submit" [disabled]="!form.valid || submitting" (click)="handleSubmit()">Submit</button>
-    </nz-form-control>
-  </nz-form-item>
-</form>
+<nz-steps [nzCurrent]="current">
+  <nz-step nzTitle="Khách hàng"></nz-step>
+  <nz-step nzTitle="Tài sản"></nz-step>
+  <nz-step nzTitle="Hoàn tất"></nz-step>
+</nz-steps>
+<div class="steps-content" style="padding: 1rem">
+  <h2>
+    Thông tin khách hàng
+  </h2>
+  <form nz-form>
+    <div nz-row  style="flex-wrap: nowrap" [nzGutter]="24">
+      <div nzFlex="10rem" nz-col>
+        <nz-form-item>
+          <h3>Hình ảnh</h3>
+            <div style="border: 1px solid #dee2e6; width: 100%; height: 12rem;">
+
+            </div>
+        </nz-form-item>
+
+      </div>
+      <div nz-col nzFlex="auto">
+        <h3>Thông tin cá nhân</h3>
+        <div nz-row [nzGutter]="24">
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Họ tên</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Giới tính</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <nz-radio-group >
+                  <label nz-radio nzValue="A">Nam</label>
+                  <label nz-radio nzValue="B">Nữ</label>
+                </nz-radio-group>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="8">
+
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Ngày sinh</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Nơi sinh</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Quê quán</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+
+          <div nz-col nzSpan="8">
+
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">CMND</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Ngày cấp</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Nơi cấp</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+
+        </div>
+        <h3>Thông tin liên lạc</h3>
+        <div nz-row [nzGutter]="24">
+
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">SĐT1</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="8">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">SĐT2</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="8">
+          </div>
+          <div nz-col nzSpan="16">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Địa chi hiện tại</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzSpan="16">
+            <nz-form-item>
+              <nz-form-label nzSpan="24" nzFor="email">Địa chỉ đăng ký HKTT</nz-form-label>
+              <nz-form-control nzSpan="24">
+                <input nz-input name="email" type="email">
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div class="steps-action">
+  <button nz-button nzType="default" (click)="pre()" *ngIf="current > 0">
+    <span>Previous</span>
+  </button>
+  <button nz-button nzType="default" (click)="next()" *ngIf="current < 2">
+    <span>Next</span>
+  </button>
+  <button nz-button nzType="primary" (click)="done()" *ngIf="current === 2">
+    <span>Done</span>
+  </button>
+</div>
+
+

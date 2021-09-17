@@ -43,7 +43,7 @@
       </li>
     </ul>
   </nz-sider>
-  <nz-layout style="overflow: auto">
+  <nz-layout>
     <nz-header>
       <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
@@ -54,9 +54,9 @@
         </span>
       </div>
     </nz-header>
-    <nz-content style="min-height: auto">
+    <nz-content>
       <div class="inner-content">
-        <div style="overflow: auto">
+        <div>
           <router-outlet></router-outlet>
         </div>
       </div>
